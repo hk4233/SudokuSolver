@@ -1,0 +1,65 @@
+.cell {
+    width: 70px;
+    height:  70px;
+    float: left;
+}
+input {
+    width: 70px;
+    font-size: 60px;
+    margin: 0;
+    padding: 0;
+    border: 1px black solid;
+}
+.sudoku {
+    width: 690px;
+    float: left;
+}
+.sudoku .square {
+    width: 213px;
+    float: left;
+    border: 1px black solid;
+    border-top: 2px black solid;
+}
+.sudoku .cell:nth-child(19), .sudoku .cell:nth-child(20), .sudoku .cell:nth-child(21) , .sudoku .cell:nth-child(22) , .sudoku .cell:nth-child(23), .sudoku .cell:nth-child(24), .sudoku .cell:nth-child(25), .sudoku .cell:nth-child(26), .sudoku .cell:nth-child(27), .sudoku .cell:nth-child(54), .sudoku .cell:nth-child(46), .sudoku .cell:nth-child(51), .sudoku .cell:nth-child(47), .sudoku .cell:nth-child(48), .sudoku .cell:nth-child(49), .sudoku .cell:nth-child(50), .sudoku .cell:nth-child(52), .sudoku .cell:nth-child(53)      {
+    border-bottom: 3px black solid;
+}
+.sudoku .cell:nth-child(3n) {
+    border-right: 3px black solid;
+   }
+
+.cell input {
+    text-align: center;
+}
+
+.cell.wrong input {
+    background-color: red;
+}
+.cell.right input {
+    background-color: green;
+}
+.cell input.free {
+    font-style: italic;
+}
+.selectSudokus.highlighted {
+    background-color: #DDDDDD;
+}
+.selectSudokus select {
+    width: 170px;
+ }
+.selectSudokus {
+    padding: 10px;
+ }
+
+.welcome.hide {
+    display: none;
+    }
+
+.sidebar {
+    float: left;
+}
+
+.solved {
+    color: green;
+    font-weight: bold;
+    font-size: 28px;
+ }

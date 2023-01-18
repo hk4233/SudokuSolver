@@ -1,0 +1,123 @@
+cabal-version:      3.4
+name:               RunTheCode
+version:            0.1.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis:
+
+-- A longer description of the package.
+-- description:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+
+-- The license under which the package is released.
+-- license:
+author:             Mayur Reddy Sangepu
+maintainer:         ms7483@g.rit.edu
+
+extra-source-files: README.md
+                    
+Data-dir:           .
+
+
+Category:           Game, Web, GUI, TUI
+Build-type:         Simple
+
+flag buildExamples
+    description: Build example executables.
+    default:    False
+    manual:     True
+
+flag rebug
+    description: The library uses some techniques that are highly
+                non-deterministic, for example garbage collection
+                and concurrency.
+                Bugs in these subsystems are harder to find.
+                Activating this flag will expose more of them.
+    default:    False
+    manual:     True
+
+
+common warnings
+    ghc-options: -Wall
+
+library
+    -- Import common warning flags.
+    import:           warnings
+
+    -- Modules exported by the library.
+    -- exposed-modules:  MyLib
+
+    -- Modules included in this library but not exported.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+
+    -- Other library packages from which modules are imported.
+    build-depends:    base ^>=4.17.0.0
+
+    -- Directories containing source files.
+    hs-source-dirs:   src
+
+    -- Base language which the package is written in.
+    default-language: Haskell2010
+
+executable RunTheCode
+    -- Import common warning flags.
+    import:           warnings
+
+    -- .hs or .lhs file containing the Main module.
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    other-modules: Generator, GUI, Helper
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+
+    -- Other library packages from which modules are imported.
+    build-depends:
+        base >=4.15.0.0 && <5,
+        RunTheCode,
+        random,
+        threepenny-gui,
+        safe
+
+    -- Directories containing source files.
+    hs-source-dirs:   app
+
+    -- Base language which the package is written in.
+    default-language: Haskell2010
+
+test-suite RunTheCode-test
+    -- Import common warning flags.
+    import:           warnings
+
+    -- Base language which the package is written in.
+    default-language: Haskell2010
+
+    -- Modules included in this executable, other than Main.
+    other-modules: Generator, GUI, Helper
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+
+    -- The interface type and version of the test suite.
+    type:             exitcode-stdio-1.0
+
+    -- Directories containing source files.
+    hs-source-dirs:   test, app
+
+    -- The entrypoint to the test suite.
+    main-is:          Test.hs
+
+    -- Test dependencies.
+    build-depends:
+        base ^>=4.16.3.0,
+        RunTheCode,
+        random,
+        threepenny-gui,
+        quickcheck-instances,
+        QuickCheck
